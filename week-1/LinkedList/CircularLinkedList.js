@@ -1,116 +1,128 @@
+
+
 class Node {
     constructor(value){
-        this.value=value
-        this.next=null
-    } 
-}
-
-class CirclerLinkedList{
-constructor(){
-    this.head=null
-    this.tail=null
-    this.size=0
-}
-isEmpty(){
-    return this.size===0
-}
-getSize(){
-    return this.size
-}
-
-append(val){
-    let node = new Node(val)
-    if(this.isEmpty()){
-        this.head=node
-        this.tail=node
-        node.next = this.head
-    }else{
-        this.tail.next = node
-        node.next = this.head
-        this.tail = node
+        this.value = value 
+        this.next = null 
+        this.prev = null
     }
-    this.size++
 }
+// class CLL {
+//     constructor (){
+//         this.head = null 
+//         this.tail = null 
+//         this.size = 0
+//     }
 
-prepend(val){
-    let node = new Node(val)
-    if(this.isEmpty()){
-        this.head=node
-        this.tail=node
-        node.next = this.head
-    }else{
-        this.tail.next = node
-        node.next = this.head
-        this.head = node
-    }
-    this.size++
-}
+//     isEmpty(){
+//         return this.size == 0
+//     }
 
-print(){
-    if(this.isEmpty()){
-        console.log("list is empty")
-    }else{
-        let curr=this.head
-        let list=""
-      do {
-            list += curr.value + ' ';
-            curr = curr.next;
-        } while (curr !== this.head);
-        
-        console.log(list)
-    }
-    
-}
+//     prepend(value){
+//         let node = new Node(value)
+         
+//         if(this.isEmpty()){
+//             this.head = node 
+//             this.tail = node 
+//             this.tail.next = node  
+//         }else{
+//             this.tail.next = node
+//             node.next = this.head
+//             this.head = node
+//         }
+//         this.size++
+//     }
 
-}
-let list=new CirclerLinkedList()
+//     append(value){
+//         let node = new Node(value)
+//         if(this.isEmpty()){
+//             this.tail=node
+//             this.head = node 
+//             this.tail.next = node
+//         }else{
+//              this.tail.next = node
+//              this.tail = node
+//              this.tail.next = this.head
+//         }
+//         this.size++
+//     }
 
-list.append(10)
-list.prepend(5)
-list.print()
+//     print(){
+//         let curr = this.head
+//         let res = ""
+//         do{
+//             res+=curr.value+" "
+//             curr = curr.next
+//         }while(curr !== this.head)
+//             console.log(res)
+//     }
+// }
 
+// let list = new CLL()
 
-
+// list.prepend(10)
+// list.prepend(20)
+// list.append(20)
+// list.append(49)
+// list.print()
 
 // --------------------------------------------------------------------------------------------------------
 
+class CLL{
+    constructor(){
+        this.head = null
+        this.tail = null 
+        this.size = 0
+    }
+    isEmpty(){
+        return this.size == 0
+    }
+    prepend (value){
+        let node = new Node(value)
+        if(this.isEmpty()){
+           this.head = node 
+           this.tail = node 
+           this.head.prev  = this.tail
+           this.tail.next = this.head
+        }else{
+            node.prev = this.tail
+            node.next = this.head
+            this.head = node 
+            this.tail.next = this.head
+        }
+        this.size++
+    }
+    append (value){
+        let node = new Node(value)
+        if(this.isEmpty()){
+            this.head = node
+            this.tail = node
+            this.head.prev = this.tail
+            this.tail.next = this.head
+        }else{
+            this.tail.next = node
+            node.next = this.head
+            this.tail = node 
+            this.head.prev = this.tail
+        }
+        this.size++
+    }
+    print(){
+         let curr = this.head
+         let res = ""
+         do{
+             res+=curr.value+" "
+             curr = curr.next
+         }while(curr !== this.head)
+             console.log(res)
+     }
 
-// append(value) {
-//     const node = new Node(value);
+}
 
-//     if (!this.head) {
-//         // First node points to itself in both directions
-//         this.head = node;
-//         this.tail = node;
-//         node.next = node;
-//         node.prev = node;
-//     } else {
-//         node.prev = this.tail;
-//         node.next = this.head;
+let list = new CLL()
 
-//         this.tail.next = node;
-//         this.head.prev = node;
-
-//         this.tail = node;
-//     }
-// }
-
-
-// prepend(value) {
-//     const node = new Node(value);
-
-//     if (!this.head) {
-//         this.head = node;
-//         this.tail = node;
-//         node.next = node;
-//         node.prev = node;
-//     } else {
-//         node.next = this.head;
-//         node.prev = this.tail;
-
-//         this.head.prev = node;
-//         this.tail.next = node;
-
-//         this.head = node;
-//     }
-// }
+list.prepend(10)
+list.prepend(20)
+list.append(30)
+list.append(50)
+list.print()
