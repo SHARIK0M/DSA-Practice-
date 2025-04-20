@@ -153,16 +153,16 @@ class chainingHashing{
 
 let table = new chainingHashing(5)
 
-// table.set("name","sharik")
-// table.set("mean","sharik")
-// table.set("likeicbcbc","sharik")
-// console.log(table.get("name"));
-// table.display()
+table.set("name","sharik")
+table.set("mean","sharik")
+table.set("likeicbcbc","sharik")
+console.log(table.get("name"));
+table.display()
 // console.log(table.removedupulicate("absasfa"));
 
 // console.log(table.mostfreecount([1,2,1,2,4,2,1,2]));
 
 // console.log(table.finddupulicates([1,2,1,2,4,2,1,2]));
 
-console.log(table.thirdfreecount([1,2,1,2,4,2,1,2]));
+// console.log(table.thirdfreecount([1,2,1,2,4,2,1,2]));
 

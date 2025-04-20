@@ -59,7 +59,7 @@ let list = new Stack()
 
 list.push(10)
 list.push(30)
-list.pop()
+// list.pop()
 console.log(list.getSize());
 
 list.print()
