@@ -95,7 +95,7 @@ class tire {
             path.push([node,char])
             node = node.children[char]
         }
-
+ 
 
         if(node.EndoftheWord){
             node.EndoftheWord = false
